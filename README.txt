@@ -57,7 +57,7 @@ To lookup the resource in the controllers use:
 
 == INSTALL:
 
-* gem install acts_as_seo_friendly
+* sudo gem install revolutionhealth-acts_as_seo_friendly -s http://gems.github.com
 
 
 == LICENSE:

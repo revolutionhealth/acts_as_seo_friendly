@@ -5,8 +5,8 @@ EMAIL = "opensource@revolutionhealth.com"
 DESCRIPTION = "provides a seo friendly version of field on a table"
 GEM_NAME = 'acts_as_seo_friendly' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'acts_as_seo_friendly' # The unix name for your project
-HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
-DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
+HOMEPATH = "http://github.com/revolutionhealth/acts_as_seo_friendly/tree/master"
+DOWNLOAD_PATH = "http://github.com/revolutionhealth/acts_as_seo_friendly/tree/master"
 EXTRA_DEPENDENCIES = [
 #  ['activesupport', '>= 1.3.1']
 ]    # An array of rubygem dependencies [name, version]

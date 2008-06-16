@@ -4,6 +4,7 @@ Manifest.txt
 PostInstall.txt
 README.txt
 Rakefile
+acts_as_seo_friendly.gemspec
 config/hoe.rb
 config/requirements.rb
 lib/acts_as_seo_friendly.rb
@@ -16,6 +17,8 @@ setup.rb
 tasks/deployment.rake
 tasks/environment.rake
 tasks/website.rake
+test/seo_test_model.rb
+test/seo_test_model_conditions.rb
 test/test_acts_as_seo_friendly.rb
 test/test_helper.rb
 website/index.html
