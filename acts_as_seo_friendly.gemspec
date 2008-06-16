@@ -1,4 +1,3 @@
-(in /Users/jdamick/workspace/acts_as_seo_friendly)
 Gem::Specification.new do |s|
   s.name = %q{acts_as_seo_friendly}
   s.version = "1.1.0"
