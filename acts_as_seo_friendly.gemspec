@@ -1,7 +1,7 @@
 (in /Users/jdamick/workspace/acts_as_seo_friendly)
 Gem::Specification.new do |s|
   s.name = %q{acts_as_seo_friendly}
-  s.version = "1.0.0"
+  s.version = "1.1.0"
 
   s.specification_version = 2 if s.respond_to? :specification_version=
 
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = %q{provides a seo friendly version of field on a table}
   s.email = ["opensource@revolutionhealth.com"]
   s.extra_rdoc_files = ["History.txt", "License.txt", "Manifest.txt", "PostInstall.txt", "README.txt", "website/index.txt"]
-  s.files = ["History.txt", "License.txt", "Manifest.txt", "PostInstall.txt", "README.txt", "Rakefile", "config/hoe.rb", "config/requirements.rb", "lib/acts_as_seo_friendly.rb", "lib/acts_as_seo_friendly/version.rb", "script/console", "script/destroy", "script/generate", "script/txt2html", "setup.rb", "tasks/deployment.rake", "tasks/environment.rake", "tasks/website.rake", "test/test_acts_as_seo_friendly.rb", "test/test_helper.rb", "website/index.html", "website/index.txt", "website/javascripts/rounded_corners_lite.inc.js", "website/stylesheets/screen.css", "website/template.html.erb"]
+  s.files = ["History.txt", "License.txt", "Manifest.txt", "PostInstall.txt", "README.txt", "Rakefile", "acts_as_seo_friendly.gemspec", "config/hoe.rb", "config/requirements.rb", "lib/acts_as_seo_friendly.rb", "lib/acts_as_seo_friendly/version.rb", "script/console", "script/destroy", "script/generate", "script/txt2html", "setup.rb", "tasks/deployment.rake", "tasks/environment.rake", "tasks/website.rake", "test/seo_test_model.rb", "test/seo_test_model_conditions.rb", "test/test_acts_as_seo_friendly.rb", "test/test_helper.rb", "website/index.html", "website/index.txt", "website/javascripts/rounded_corners_lite.inc.js", "website/stylesheets/screen.css", "website/template.html.erb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/revolutionhealth/acts_as_seo_friendly/tree/master}
   s.post_install_message = %q{
