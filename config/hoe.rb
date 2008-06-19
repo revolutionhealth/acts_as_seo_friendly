@@ -1,7 +1,7 @@
 require 'acts_as_seo_friendly/version'
 
 AUTHOR = 'Revolution Health'  # can also be an array of Authors
-EMAIL = "opensource@revolutionhealth.com"
+EMAIL = "rails@revolutionhealth.com"
 DESCRIPTION = "provides a seo friendly version of field on a table"
 GEM_NAME = 'acts_as_seo_friendly' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'acts_as_seo_friendly' # The unix name for your project
