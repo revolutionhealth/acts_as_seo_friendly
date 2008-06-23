@@ -2,17 +2,12 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 require 'ostruct'
 
 class TestActsAsSeoFriendly < Test::Unit::TestCase
-  ActiveRecord::Base.configurations = {'test' => {'adapter' => "sqlite3", "dbfile" => ":memory:"}}
-
+  include ActiveRecordTestHelper
+  
   def setup
-    ActiveRecord::Base.logger = Logger.new(STDOUT)
-    ActiveRecord::Base.logger.level = Logger::WARN
-    ActiveRecord::Base.logger.level = Logger::DEBUG if ENV['DEBUG_SQL'] == 'true'
+    ar_setup()
     
-    ActiveRecord::Base.establish_connection
-    ActiveRecord::Base.connection.reconnect!
-    ActiveRecord::Schema.define(:version => 1) do
-      
+    ActiveRecord::Schema.define(:version => 1) do      
       create_table :seo_test_models do |t|
         t.string :name
         t.timestamps
@@ -23,10 +18,7 @@ class TestActsAsSeoFriendly < Test::Unit::TestCase
   
   def teardown
     SeoTestModel.drop_seo_friendly_column()
-    ActiveRecord::Base.connection.tables.each do |table|
-      ActiveRecord::Base.connection.drop_table(table)
-    end
-    ActiveRecord::Base.connection.disconnect!
+    ar_teardown()
   end
 
   def test_id_generation
@@ -146,7 +138,7 @@ class TestActsAsSeoFriendly < Test::Unit::TestCase
 
     begin
       oil_short3 = SeoTestModel.create!(:name =>"oil")
-      assert (oil_short3.seo_id.size <= 8)
+      assert(oil_short3.seo_id.size <= 8)
     ensure
       opts[:seo_friendly_id_limit] = orig_limit
       SeoTestModel.write_inheritable_attribute(:seo_friendly_options, opts)

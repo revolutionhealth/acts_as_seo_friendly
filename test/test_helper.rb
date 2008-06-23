@@ -1,8 +1,8 @@
-RAILS_ENV = 'test'
+RAILS_ENV = 'test' if !defined?(RAILS_ENV) || RAILS_ENV != 'test'
 require 'test/unit'
 require 'rubygems'
 
-require 'active_record'
+require 'active_record_test_helper'
 
 require File.dirname(__FILE__) + '/../lib/acts_as_seo_friendly'
 
