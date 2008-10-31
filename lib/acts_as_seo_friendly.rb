@@ -120,7 +120,14 @@ module ActiveRecord
           
           result = nil
           if (count_seo_id_value != 0)
+            # +1 from current count of seo ids with similar format
             result = count_seo_id_N_value + 1
+            # +1 until the seo id does not exist in the database
+            # The initial check is based on the counter above, so, in a rare case of another collision,
+            # the code shouldn't execute the find_by query that many times.
+            #
+            # For example, if there are 10000 rows that matches the format, the first check would be on 100001
+            # and not 1
             result += 1 until self.class.send("find_by_#{seo_id_field}".to_sym, "#{seo_id_value}-#{result}").blank?
           end
           return result
