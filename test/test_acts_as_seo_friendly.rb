@@ -145,6 +145,19 @@ class TestActsAsSeoFriendly < Test::Unit::TestCase
     end
     
   end
+
+  def test_collision_with_original_seo_id
+    a = SeoTestModel.create!(:name => "a 1")
+    assert_equal('a-1', a.seo_id)
+    b = SeoTestModel.create!(:name => "a 1/2")
+    assert_equal('a-1-2', b.seo_id)
+    c = SeoTestModel.create!(:name => "a 1/4")
+    assert_equal('a-1-4', c.seo_id)
+    d = SeoTestModel.create!(:name => "a 1")
+    assert_equal('a-1-3', d.seo_id, "seo_id unique counter should be +1 of and existing seo_id that matches the format with the minimum counter value")
+    e = SeoTestModel.create!(:name => "a 1")
+    assert_equal('a-1-5', e.seo_id, "seo_id unique counter should be +1 of and existing seo_id that matches the format with the minimum counter value")
+  end
   
   private
   def create_seo_str(str)

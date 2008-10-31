@@ -120,8 +120,8 @@ module ActiveRecord
           
           result = nil
           if (count_seo_id_value != 0)
-            last = count_seo_id_N_value
-            result = last + 1
+            result = count_seo_id_N_value + 1
+            result += 1 until self.class.send("find_by_#{seo_id_field}".to_sym, "#{seo_id_value}-#{result}").blank?
           end
           return result
         end
