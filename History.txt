@@ -2,3 +2,12 @@
 
 * 1 major enhancement:
   * Initial release
+
+=== 1.1.1 2008-10-31
+
+* 1 major enhancement:
+  * Fixed counter issue where resource id field value ends with a number
+
+=== 1.1.2 2008-12-11
+* 1 minor enhancement:
+  * Added support for using a method as a resource id field
