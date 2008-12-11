@@ -65,7 +65,7 @@ module ActiveRecord
           count_seo_id_field_N = "#{count_seo_id_field}_N"
                     
           resource_id_field = self.class.read_inheritable_attribute(:seo_friendly_options)[:resource_id].to_s
-          resource_id_value = self[resource_id_field]
+          resource_id_value = self.send(resource_id_field) rescue nil
           
           return if resource_id_value.blank?
           

@@ -159,6 +159,11 @@ class TestActsAsSeoFriendly < Test::Unit::TestCase
     assert_equal('a-1-5', e.seo_id, "seo_id unique counter should be +1 of and existing seo_id that matches the format with the minimum counter value")
   end
   
+  def test_resource_method_model_using_a_method_as_a_resource_id
+    a = SeoTestResourceMethodModel.create!(:name => "a 1")
+    assert_equal('a-1', a.seo_id)
+  end
+  
   private
   def create_seo_str(str)
     SeoTestModel.new.send(:create_seo_friendly_str, str)

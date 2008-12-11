@@ -9,5 +9,6 @@ require File.dirname(__FILE__) + '/../lib/acts_as_seo_friendly'
 require 'mocha'
 require File.join(File.dirname(__FILE__), 'seo_test_model')
 require File.join(File.dirname(__FILE__), 'seo_test_model_conditions')
+require File.join(File.dirname(__FILE__), 'seo_test_resource_method_model')
 
 
