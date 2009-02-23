@@ -135,6 +135,9 @@ module ActiveRecord
         
         def create_seo_friendly_str(str, digits = INITITAL_SEO_UNIQUE_DIGITS)
           s = str.dup
+          s.gsub!("“", "")
+          s.gsub!("”", "")
+          s.gsub!("’", "")
           s.gsub!(/\'/, '')
           s.gsub!(/\W+/, ' ')
           s.strip!
