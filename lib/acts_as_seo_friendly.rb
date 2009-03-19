@@ -28,7 +28,11 @@ module ActiveRecord
           options = {:seo_friendly_id_field => :seo_friendly_id, :seo_friendly_id_limit => 50}.merge(options)
           write_inheritable_attribute(:seo_friendly_options, options)
           
-          after_save :create_seo_friendly_id
+	  if options[:do_before_save]
+            before_save :create_seo_friendly_id
+          else
+            after_save :create_seo_friendly_id
+          end
           to_param_with(read_inheritable_attribute(:seo_friendly_options)[:seo_friendly_id_field])
           
           if !self.included_modules.include?(ActiveRecord::Acts::SeoFriendly::InstanceMethods)
