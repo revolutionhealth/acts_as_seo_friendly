@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.name = %q{acts_as_seo_friendly}
-  s.version = "1.1.3"
+  s.version = "1.1.4"
 
   s.specification_version = 2 if s.respond_to? :specification_version=
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Revolution Health"]
   s.autorequire = %q{acts_as_seo_friendly}
-  s.date = %q{2008-06-23}
+  s.date = %q{2009-05-14}
   s.description = %q{provides a seo friendly version of field on a table}
   s.email = %q{rails-trunk@revolutionhealth.com}
   s.extra_rdoc_files = ["README", "LICENSE", "TODO"]
