@@ -28,7 +28,9 @@ module ActiveRecord
           options = {:seo_friendly_id_field => :seo_friendly_id, :seo_friendly_id_limit => 50}.merge(options)
           write_inheritable_attribute(:seo_friendly_options, options)
           
-	  if options[:do_before_save]
+          if options[:do_before_create]
+            before_create :create_seo_friendly_id
+          elsif options[:do_before_save]
             before_save :create_seo_friendly_id
           else
             after_save :create_seo_friendly_id
@@ -54,9 +56,7 @@ module ActiveRecord
         end
       end
       
-      
       module InstanceMethods
-        private        
         
         INITITAL_SEO_UNIQUE_DIGITS = 4         # initially allow for 1000 collisions.. 
         
@@ -74,13 +74,13 @@ module ActiveRecord
           return if resource_id_value.blank?
           
           seo_id_value = create_seo_friendly_str(resource_id_value)
+          seo_id_value = self.class.read_inheritable_attribute(:seo_friendly_options)[:use_if_empty] || "" if seo_id_value.blank?
 
           return if (self[seo_id_field] =~ /^#{seo_id_value}$/) || (self[seo_id_field] =~ /^#{seo_id_value}\-\d+$/)
 
           self.class.transaction do
             unique_id = determine_unique_id(seo_id_field, count_seo_id_field, count_seo_id_field_N, seo_id_value)
             seo_field_value = "#{seo_id_value}" + (unique_id != nil ? "-#{unique_id}" : "")
-            
             seo_friendly_id_limit = self.class.read_inheritable_attribute(:seo_friendly_options)[:seo_friendly_id_limit].to_i
             
             if seo_field_value.size > seo_friendly_id_limit
@@ -143,7 +143,7 @@ module ActiveRecord
           s.gsub!("”", "")
           s.gsub!("’", "")
           s.gsub!(/\'/, '')
-          s.gsub!(/\W+/, ' ')
+          s.gsub!(/\W+/, ' ')  
           s.strip!
           s.downcase!
           s.gsub!(/\ +/, '-')
